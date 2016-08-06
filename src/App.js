@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {CreateTask} from './components/create-task';
+import {TaskList} from './components/task-list';
+import {Task} from './components/task';
 import './App.css';
 
 class App extends Component {
@@ -9,40 +12,15 @@ class App extends Component {
 
                 <h1>To Do List</h1>
 
-                <form>
-                    <input type="text" placeholder="What needs to be done?"/>
-                </form>
+                <CreateTask />
 
-                <div className="task-list">
+                <TaskList>
 
-                    <div className="task">
-                        <input type="checkbox"/>
-                        <label>
-                            <span>Normal Task</span>
-                            <input type="text"/>
-                        </label>
-                        <button type="button">Delete</button>
-                    </div>
+                    <Task className="task" name="Normal Task"/>
+                    <Task className="task completed" name="Completed Task"/>
+                    <Task className="task editing" name="Editing Task"/>
 
-                    <div className="task completed">
-                        <input type="checkbox"/>
-                        <label>
-                            <span>Completed Task</span>
-                            <input type="text"/>
-                        </label>
-                        <button type="button">Delete</button>
-                    </div>
-
-                    <div className="task editing">
-                        <input type="checkbox"/>
-                        <label>
-                            <span>Editing Task</span>
-                            <input type="text" value="Editing Task"/>
-                        </label>
-                        <button type="button">Delete</button>
-                    </div>
-
-                </div>
+                </TaskList>
 
             </div>
         );

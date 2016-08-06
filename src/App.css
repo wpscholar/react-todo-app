@@ -51,7 +51,7 @@ form input {
     text-align: right;
 }
 
-.task.completed label {
+.task.completed label > span {
     text-decoration: line-through;
 }
 

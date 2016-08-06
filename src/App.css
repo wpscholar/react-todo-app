@@ -1,0 +1,68 @@
+input[type="text"], input[type="checkbox"] {
+    font-size: 1em;
+}
+
+.todo-app {
+    width: 600px;
+    margin: 0 auto;
+}
+
+form input {
+    width: 100%;
+    padding: .5em;
+}
+
+.task-list {
+    margin: 1em 0;
+    padding: .5em;
+    border: 1px solid #ccc;
+}
+
+.task {
+    display: flex;
+    margin: .5em;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 1em;
+}
+
+.task label {
+    flex-grow: 1;
+}
+
+.task label span {
+    width: 100%;
+    display: inline-block;
+}
+
+.task input[type="text"] {
+    display: none;
+    width: 100%;
+}
+
+.task button {
+    margin-left: 1em;
+    display: none;
+}
+
+.task:hover button {
+    display: inline-block;
+    text-align: right;
+}
+
+.task.completed label {
+    text-decoration: line-through;
+}
+
+.task.editing label > span {
+    display: none;
+}
+
+.task.editing input[type="text"] {
+    display: inline-block;
+}
+
+.task.editing button {
+    display: none;
+}

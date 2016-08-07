@@ -52,7 +52,7 @@ const TaskConnect = connect(
     (dispatch) => {
         return {
             onChange: (index, name) => dispatch({
-                type: 'SET_TASK_NAME',
+                type: 'UPDATE_TASK',
                 index: index,
                 name: name
             }),

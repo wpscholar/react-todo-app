@@ -7,7 +7,7 @@ export function tasks(state = [], action) {
         case 'SET_TASK_NAME':
             return function () {
                 const task = _.assign(state[action.index], {name: action.name});
-                return Immutable.fromJS(state).set(action.id, task).toJS();
+                return Immutable.fromJS(state).set(action.index, task).toJS();
             }();
         default:
             return state;

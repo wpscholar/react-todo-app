@@ -1,10 +1,17 @@
 import React, {Component} from 'react'
+import classNames from 'classnames'
 
 class Task extends Component {
 
     render() {
+
+        const classes = {
+            'task': true,
+            'completed': this.props.isComplete
+        };
+
         return (
-            <div className={"task" + (this.props.isComplete ? " completed" : "")}>
+            <div className={classNames(classes)}>
                 <input type="checkbox"/>
                 <label>
                     <span>{this.props.name}</span>

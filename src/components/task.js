@@ -4,7 +4,7 @@ class Task extends Component {
 
     render() {
         return (
-            <div className={this.props.className}>
+            <div className={"task" + (this.props.isComplete ? " completed" : "")}>
                 <input type="checkbox"/>
                 <label>
                     <span>{this.props.name}</span>

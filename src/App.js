@@ -1,8 +1,18 @@
 import React, {Component} from 'react';
 import {CreateTask} from './components/create-task';
 import {TaskList} from './components/task-list';
-import {Task} from './components/task';
 import './App.css';
+
+const tasks = [
+    {
+        name: "Normal Task",
+        isComplete: false
+    },
+    {
+        name: "Completed Task",
+        isComplete: true
+    }
+];
 
 class App extends Component {
 
@@ -14,13 +24,7 @@ class App extends Component {
 
                 <CreateTask />
 
-                <TaskList>
-
-                    <Task className="task" name="Normal Task"/>
-                    <Task className="task completed" name="Completed Task"/>
-                    <Task className="task editing" name="Editing Task"/>
-
-                </TaskList>
+                <TaskList tasks={tasks}/>
 
             </div>
         );

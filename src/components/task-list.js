@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import {Task} from './task';
 
 class TaskList extends Component {
@@ -17,4 +18,12 @@ class TaskList extends Component {
 
 }
 
-export {TaskList}
+const TaskListConnect = connect(
+    (state) => {
+        return {
+            tasks: state.tasks
+        }
+    }
+)(TaskList);
+
+export {TaskListConnect as TaskList}

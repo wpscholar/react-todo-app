@@ -3,17 +3,6 @@ import {CreateTask} from './components/create-task';
 import {TaskList} from './components/task-list';
 import './App.css';
 
-const tasks = [
-    {
-        name: "Normal Task",
-        isComplete: false
-    },
-    {
-        name: "Completed Task",
-        isComplete: true
-    }
-];
-
 class App extends Component {
 
     render() {
@@ -24,7 +13,7 @@ class App extends Component {
 
                 <CreateTask />
 
-                <TaskList tasks={tasks}/>
+                <TaskList />
 
             </div>
         );

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
+import {connect} from 'react-redux'
 import classNames from 'classnames'
 
 class Task extends Component {
@@ -24,7 +25,10 @@ class Task extends Component {
                 <input type="checkbox"/>
                 <label>
                     <span onDoubleClick={() => this.setState({isEditing: true})}>{this.props.name}</span>
-                    <input type="text" defaultValue={this.props.name} onBlur={() => this.setState({isEditing: false})}/>
+                    <input type="text"
+                           value={this.props.name}
+                           onChange={(e) => this.props.onChange(this.props.index, e.target.value)}
+                           onBlur={() => this.setState({isEditing: false})}/>
                 </label>
                 <button type="button">Delete</button>
             </div>
@@ -41,4 +45,19 @@ class Task extends Component {
 
 }
 
-export {Task}
+const TaskConnect = connect(
+    (state) => {
+        return {}
+    },
+    (dispatch) => {
+        return {
+            onChange: (index, name) => dispatch({
+                type: 'SET_TASK_NAME',
+                index: index,
+                name: name
+            })
+        }
+    }
+)(Task);
+
+export {TaskConnect as Task}

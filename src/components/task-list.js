@@ -13,7 +13,7 @@ class TaskList extends Component {
     }
 
     renderTask(task, index) {
-        return <Task key={index} {...task}/>
+        return <Task key={index} index={index} {...task}/>
     }
 
 }

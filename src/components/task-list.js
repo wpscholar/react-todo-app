@@ -5,6 +5,11 @@ import {Task} from './task';
 class TaskList extends Component {
 
     render() {
+
+        if (!this.props.tasks.length) {
+            return null;
+        }
+
         return (
             <div className="task-list">
                 {this.props.tasks.map(this.renderTask.bind(this))}

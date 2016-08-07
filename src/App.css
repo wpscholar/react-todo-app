@@ -28,12 +28,12 @@ form input {
 }
 
 .task label {
+    display: flex;
     flex-grow: 1;
 }
 
 .task label span {
-    width: 100%;
-    display: inline-block;
+    flex-grow: inherit;
 }
 
 .task input[type="text"] {

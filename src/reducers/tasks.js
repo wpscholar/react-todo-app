@@ -9,6 +9,8 @@ export function tasks(state = [], action) {
                 const task = _.assign(state[action.index], {name: action.name});
                 return Immutable.fromJS(state).set(action.index, task).toJS();
             }();
+        case 'DELETE_TASK':
+            return Immutable.fromJS(state).delete(action.index).toJS();
         default:
             return state;
     }

@@ -30,7 +30,7 @@ class Task extends Component {
                            onChange={(e) => this.props.onChange(this.props.index, e.target.value)}
                            onBlur={() => this.setState({isEditing: false})}/>
                 </label>
-                <button type="button">Delete</button>
+                <button type="button" onClick={() => this.props.onDelete(this.props.index)}>Delete</button>
             </div>
         )
     }
@@ -55,6 +55,10 @@ const TaskConnect = connect(
                 type: 'SET_TASK_NAME',
                 index: index,
                 name: name
+            }),
+            onDelete: (index) => dispatch({
+                type: 'DELETE_TASK',
+                index: index
             })
         }
     }

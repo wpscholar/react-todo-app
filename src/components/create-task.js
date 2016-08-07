@@ -7,7 +7,7 @@ class CreateTask extends Component {
     render() {
         return (
             <form onSubmit={this.onSubmit.bind(this)}>
-                <input type="text" placeholder="What needs to be done?"/>
+                <input type="text" placeholder="What needs to be done?" autoFocus={true}/>
             </form>
         )
     }

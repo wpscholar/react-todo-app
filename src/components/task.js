@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
+import _ from 'lodash'
 
 class Task extends Component {
 
@@ -22,12 +23,14 @@ class Task extends Component {
 
         return (
             <div className={classNames(classes)}>
-                <input type="checkbox"/>
+                <input type="checkbox"
+                       checked={this.props.isComplete}
+                       onChange={() => this.props.onChange(this.props.index, {isComplete: !this.props.isComplete})}/>
                 <label>
                     <span onDoubleClick={() => this.setState({isEditing: true})}>{this.props.name}</span>
                     <input type="text"
                            value={this.props.name}
-                           onChange={(e) => this.props.onChange(this.props.index, e.target.value)}
+                           onChange={(e) => this.props.onChange(this.props.index, {name: e.target.value})}
                            onBlur={() => this.setState({isEditing: false})}/>
                 </label>
                 <button type="button" onClick={() => this.props.onDelete(this.props.index)}>Delete</button>
@@ -51,11 +54,10 @@ const TaskConnect = connect(
     },
     (dispatch) => {
         return {
-            onChange: (index, name) => dispatch({
+            onChange: (index, changes) => dispatch(_.assign({
                 type: 'UPDATE_TASK',
-                index: index,
-                name: name
-            }),
+                index: index
+            }, changes)),
             onDelete: (index) => dispatch({
                 type: 'DELETE_TASK',
                 index: index

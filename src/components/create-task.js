@@ -14,7 +14,9 @@ class CreateTask extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.props.onSubmit(ReactDOM.findDOMNode(this).querySelector('input').value);
+        const input = ReactDOM.findDOMNode(this).querySelector('input');
+        this.props.onSubmit(input.value);
+        input.value = '';
     }
 
 }

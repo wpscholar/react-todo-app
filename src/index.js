@@ -7,19 +7,6 @@ import {tasks} from './reducers/tasks'
 import App from './App';
 import './index.css';
 
-const initialState = {
-    tasks: [
-        {
-            name: "Normal Task",
-            isComplete: false
-        },
-        {
-            name: "Completed Task",
-            isComplete: true
-        }
-    ]
-};
-
 const logger = createLogger({collapsed: true});
 const reducers = {
     tasks: tasks
@@ -27,7 +14,6 @@ const reducers = {
 
 const store = createStore(
     combineReducers(reducers),
-    initialState,
     applyMiddleware(logger)
 );
 
